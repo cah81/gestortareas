@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.Optional;
 
 @Service
@@ -31,7 +30,6 @@ public class MarkTaskAsFinished implements MarkTaskAsFinishedServicePort {
         }
         Task task = optionalTask.get();
         task.setFinished(true);
-        //repository.markTaskAsFinished(id);
         return  AutoTaskMapper.INSTANCE.mapToTaskToTaskOutputDto(repository.save(task));
 
     }
