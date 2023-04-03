@@ -15,9 +15,10 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
     public List<Task> findAllByTaskStatus(TaskStatus status);
 
+
     @Modifying
-    @Query(value = "UPDATE TASK SET FINISHED=true WHERE ID=:id", nativeQuery = true)
-    public void markTaskAsFinished(@Param("id") Long id);
+    @Query(value = "UPDATE TASKS SET FINISHED=true WHERE ID=:id",nativeQuery = true)
+    public void markTaskAsFinished(Integer id);
 
 
 }
