@@ -4,7 +4,6 @@ import com.task.manager.task.application.service.DeleteTaskServicePort;
 import com.task.manager.task.application.service.FindTaskByIdPort;
 import com.task.manager.task.infrastructure.dto.TaskOutPutDto;
 import lombok.AllArgsConstructor;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

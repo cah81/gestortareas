@@ -2,6 +2,7 @@ package mapper;
 
 import com.task.manager.task.domain.Task;
 import com.task.manager.task.infrastructure.dto.TaskInputDto;
+import com.task.manager.task.infrastructure.dto.TaskOutPutDto;
 import com.task.manager.task.infrastructure.dto.mapper.AutoTaskMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +16,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class TestMapper {
     TaskInputDto taskInputDto = null;
     Task task =  null;
+    TaskOutPutDto taskOutPutDto = null;
 
     @BeforeEach
     void setUp(){
@@ -30,6 +32,21 @@ public class TestMapper {
     void shouldAddPersonTest() throws Exception{
         //when
         task = AutoTaskMapper.INSTANCE.mapToTaskInputDtoToTask(taskInputDto);
+        //then
+        assertThat(task).isNotNull();
+        assertThat(task.getTitle()).isEqualTo("task1");
+        assertThat(task.getDescription()).isEqualTo("review something else");
+
+
+    }
+
+    @Test
+    @Tag("shouldConvertToOutPutDto")
+    @DisplayName("shouldConvertToOutPutDto")
+    void shouldConvertOutDto() throws Exception{
+        //when
+        task = AutoTaskMapper.INSTANCE.mapToTaskInputDtoToTask(taskInputDto);
+        taskOutPutDto = AutoTaskMapper.INSTANCE.mapToTaskToTaskOutputDto(task);
         //then
         assertThat(task).isNotNull();
         assertThat(task.getTitle()).isEqualTo("task1");

@@ -6,6 +6,7 @@ import com.task.manager.task.domain.Task;
 import com.task.manager.task.infrastructure.dto.TaskOutPutDto;
 import com.task.manager.task.infrastructure.dto.mapper.AutoTaskMapper;
 import com.task.manager.task.infrastructure.repository.TaskRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class FindTaskById implements FindTaskByIdPort {
     @Autowired
     private TaskRepository repository;

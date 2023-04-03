@@ -7,13 +7,11 @@ import com.task.manager.task.application.service.MarkTaskAsFinishedServicePort;
 
 import com.task.manager.task.infrastructure.dto.TaskOutPutDto;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -23,12 +21,12 @@ import java.util.Map;
 @RequestMapping("/markTaskAsFinished/")
 @AllArgsConstructor
 public class MarkTaskAsFinishedController {
-
+    @Autowired
     private MarkTaskAsFinishedServicePort servicePort;
-
+    @Autowired
     private FindTaskByIdPort findTaskByIdPort;
 
-    private CreateTaskServicePort createTaskServicePort;
+
 
 
 
